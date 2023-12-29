@@ -54,6 +54,26 @@ struct node *createList()
     }
     return start;
 }
+//Function to clear the linked list
+void clearList(struct node **start) {
+    if (*start == NULL) {
+        printf("List is already empty.\n");
+        return;
+    }
+
+    struct node *current = *start;
+    struct node *next;
+
+    while (current != NULL) {
+        next = current->link;
+        free(current);
+        current = next;
+    }
+
+    *start = NULL;
+    printf("Linked list cleared successfully.\n");
+}
+
 //function to add a node at the begining of the list
 struct node *add_beg(struct node *start, int data) 
 {
@@ -324,7 +344,7 @@ int main()
     while(!exitFlag) 
 	{
         printf("MAIN MENU\n");
-        printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete \n5. Exit\n");
+        printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete \n5. Clear List \n6. Exit\n");
         printf("Enter your choice :");
         scanf("%d",&choice);
         switch (choice) {
@@ -441,7 +461,10 @@ int main()
                         break;
                 }
                 break;
-            case 5:
+	    case 5: 
+	        clearList(&list);
+	    	break;
+            case 6:
                 exitFlag = 1; 
                 break;
             default:
