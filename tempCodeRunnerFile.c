@@ -5,6 +5,7 @@ struct node
     int info;
     struct node *link;
 };
+<<<<<<< HEAD:tempCodeRunnerFile.c
 struct node *createList();
 struct node *add_beg(struct node *start, int data);
 struct node *add_end(struct node *start, int data);
@@ -17,6 +18,20 @@ struct node *del_end(struct node *start, int data);
 struct node *DelbeforeAnode(struct node *start,int data, int item);
 struct node *DelafterAnode(struct node *start,int data, int item);
 struct node *DelatAposition(struct node *start,int data, int position);
+=======
+//struct node *createList();
+//struct node *add_beg(struct node *start, int data);
+//struct node *add_end(struct node *start, int data);
+//struct node *beforeAnode(struct node *start,int data, int item);
+//struct node *afterAnode(struct node *start,int data, int item);
+//struct node *atAposition(struct node *start,int data, int position);
+//void display(struct node *start);
+//struct node *del_beg(struct node *start, int data);
+//struct node *del_end(struct node *start, int data);
+//struct node *DelbeforeAnode(struct node *start,int data, int item);
+//struct node *DelafterAnode(struct node *start,int data, int item);
+//struct node *DelatAposition(struct node *start,int data, int position);
+>>>>>>> 7b849d4108d56f032ffa6fbdb88181ba129f710a:Linked List.c
 
 //function to create a linked list 
 struct node *createList() 
@@ -54,6 +69,29 @@ struct node *createList()
     }
     return start;
 }
+<<<<<<< HEAD:tempCodeRunnerFile.c
+=======
+//Function to clear the linked list
+void clearList(struct node **start) {
+    if (*start == NULL) {
+        printf("List is already empty.\n");
+        return;
+    }
+
+    struct node *current = *start;
+    struct node *next;
+
+    while (current != NULL) {
+        next = current->link;
+        free(current);
+        current = next;
+    }
+
+    *start = NULL;
+    printf("Linked list cleared successfully.\n");
+}
+
+>>>>>>> 7b849d4108d56f032ffa6fbdb88181ba129f710a:Linked List.c
 //function to add a node at the begining of the list
 struct node *add_beg(struct node *start, int data) 
 {
@@ -324,7 +362,11 @@ int main()
     while(!exitFlag) 
 	{
         printf("MAIN MENU\n");
+<<<<<<< HEAD:tempCodeRunnerFile.c
         printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete \n5. Exit\n");
+=======
+        printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete \n5. Clear List \n6. Exit\n");
+>>>>>>> 7b849d4108d56f032ffa6fbdb88181ba129f710a:Linked List.c
         printf("Enter your choice :");
         scanf("%d",&choice);
         switch (choice) {
@@ -441,13 +483,20 @@ int main()
                         break;
                 }
                 break;
-            case 5:
+	    case 5: 
+	        clearList(&list);
+	    	break;
+            case 6:
                 exitFlag = 1; 
                 break;
             default:
                 printf("Invalid option entered\n");
         }
     }
+<<<<<<< HEAD:tempCodeRunnerFile.c
+=======
+
+>>>>>>> 7b849d4108d56f032ffa6fbdb88181ba129f710a:Linked List.c
     printf("Exiting the program...\nThank you!\n");
     return 0;
 }
