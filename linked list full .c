@@ -377,14 +377,15 @@ int main()
 							case 3 : 
 								printf("Enter the data to be inserted : ");
 								scanf("%d",&data);
-								printf("Enter the elements between which to insert : ");
+								printf("Enter the positon to inserted : ");
 								scanf("%d",&position);
 								list = atAposition(list,data,position);
 								display(list);
 								break;
-							default :
+							default:
 								printf("Invalid option entered \n");
-							}	
+							}
+                    break;	
                     default:
                         printf("Invalid option entered \n");
                 }
@@ -436,9 +437,9 @@ int main()
 		                    default :
 		                    	printf("Invalid choice \n");
 		            	}
+                    break;
                     default:
                         printf("Invalid choice for deletion.\n");
-                        break;
                 }
                 break;
             case 5:
