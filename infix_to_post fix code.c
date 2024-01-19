@@ -65,15 +65,21 @@ void infixToPostfix(char s[]) {
 	}
 
 	result[resultIndex] = '\0';
+	printf("The Postfix expression is: ");
 	printf("%s\n", result);
 }
 
 // Driver code
+
 int main() {
-	char exp[] = "a+b*(c^d-e)^(f+g*h)-i";
+    char exp[100];
 
-	// Function call
-	infixToPostfix(exp);
+    // Prompt the user to enter the infix expression
+    printf("Enter the infix expression: ");
+    fgets(exp, sizeof(exp), stdin);
 
-	return 0;
+    // Function call with user input
+    infixToPostfix(exp);
+
+    return 0;
 }
