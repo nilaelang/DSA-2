@@ -382,7 +382,7 @@ int main()
     while(!exitFlag) 
 	{
         printf("MAIN MENU\n");
-        printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete \n5. Exit\n");
+        printf("1. Create a linked list \n2. Insert \n3. Display the Linked List\n4. Delete\n5. Reverse\n6. Sort \n7. Exit\n");
         printf("Enter your choice :");
         scanf("%d",&choice);
         switch (choice) {
@@ -506,12 +506,12 @@ int main()
                 display(list);
                 break;
 
-            case 7:
+            case 6:
                 printf("SORT THE LINKED LIST\n");
                 list = SortLinkedList(list);
                 display(list);
                 break;
-            case 8:
+            case 7:
                 exitFlag = 1; 
                 break;
             default:
