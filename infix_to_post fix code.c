@@ -28,8 +28,9 @@ void infixToPostfix(char s[]) {
 	int len = strlen(s);
 	char stack[1000];
 	int stackIndex = -1;
+	int i;
 
-	for (int i = 0; i < len; i++) {
+	for (i = 0; i < len; i++) {
 		char c = s[i];
 
 		// If the scanned character is an operand, add it to the output string.

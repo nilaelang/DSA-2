@@ -315,6 +315,64 @@ struct node *DelatAposition(struct node *start, int data, int position)
     return start;
 }
 
+struct node *SortLinkedList(struct node *start) 
+{
+    if (start == NULL || start->link == NULL) {
+        printf("List is empty or contains only one node, sorting not required.\n");
+        return start;
+    }
+
+    int swapped;
+    struct node *ptr1;
+    struct node *lptr = NULL;
+
+    do {
+        swapped = 0;
+        ptr1 = start;
+
+        while (ptr1->link != lptr) {
+            if (ptr1->info > ptr1->link->info) {
+                // Swap the data of ptr1 and ptr1->link
+                int temp = ptr1->info;
+                ptr1->info = ptr1->link->info;
+                ptr1->link->info = temp;
+
+                swapped = 1;
+            }
+            ptr1 = ptr1->link;
+        }
+        lptr = ptr1;
+    } while (swapped);
+
+    printf("Linked List sorted successfully.\n");
+    return start;
+}
+
+struct node *ReverseLinkedList(struct node *start) 
+{
+    if (start == NULL || start->link == NULL) {
+        printf("List is empty or contains only one node, reversal not required.\n");
+        return start;
+    }
+
+    struct node *prev = NULL;
+    struct node *current = start;
+    struct node *next = NULL;
+
+    while (current != NULL) {
+        next = current->link;
+        current->link = prev;
+        prev = current;
+        current = next;
+    }
+
+    start = prev; // Set the new start as the last node
+
+    printf("Linked List reversed successfully.\n");
+    return start;
+}
+
+
 int main() 
 {
     int choice, choice1, choice2, data,item,position;
@@ -443,6 +501,17 @@ int main()
                 }
                 break;
             case 5:
+                printf("REVERSE THE LINKED LIST\n");
+                list = ReverseLinkedList(list);
+                display(list);
+                break;
+
+            case 7:
+                printf("SORT THE LINKED LIST\n");
+                list = SortLinkedList(list);
+                display(list);
+                break;
+            case 8:
                 exitFlag = 1; 
                 break;
             default:
