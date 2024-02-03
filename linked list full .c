@@ -181,7 +181,7 @@ struct node *afterAnode(struct node *start, int data, int key)
     if (temp == NULL) {
         printf("Node with key %d not found.\n", key);
         free(newNode);
-        return start;
+        return start;		
     }
     newNode->link = temp->link;
     temp->link = newNode;
